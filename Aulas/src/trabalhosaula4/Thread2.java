@@ -1,0 +1,13 @@
+package trabalhosaula4;
+
+public class Thread2 extends Thread {
+
+    @Override
+    public void run() {
+        while (Exercicio14.index + 1 < 100) {
+            Exercicio14.incrementIndex();
+            Exercicio14.arrGlobal[Exercicio14.index] = Exercicio14.index;
+        }
+    }
+
+}
