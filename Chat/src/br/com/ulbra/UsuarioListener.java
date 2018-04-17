@@ -22,7 +22,7 @@ public class UsuarioListener extends Thread implements Serializable {
     @Override
     public void run() {
         try {
-            this.usuario.getConexao().enviar("Para fazer parte do grupo, insira 'ENTRAR + seu nickname'");
+            this.usuario.getConexao().enviar("");
             while (this.usuario.getConexao().isConectionOpen()) {
                 String msg = this.usuario.getConexao().receber();
                 int indexOf = msg.indexOf(" ");
@@ -62,7 +62,6 @@ public class UsuarioListener extends Thread implements Serializable {
                         obterUltimasMensagens();
                         for (UsuarioListener listener : ServidorPrincipal.USUARIOS_CONECTADOS) {
                             if (listener.usuario.getNome() != null
-                                    && !listener.usuario.getNome().isEmpty()
                                     && !listener.usuario.getNome().equals(this.usuario.getNome())) {
                                 listener.usuario.getConexao().enviar("MSG " + this.usuario.getNome() + " entrou no grupo");
                             }
@@ -78,8 +77,7 @@ public class UsuarioListener extends Thread implements Serializable {
                 } else {
                     salvarMensagem("MSG " + this.usuario.getNome() + " " + msg[1]);
                     for (UsuarioListener listener : ServidorPrincipal.USUARIOS_CONECTADOS) {
-                        if (listener.usuario.getNome() != null
-                                && !listener.usuario.getNome().equals(this.usuario.getNome())) {
+                        if (listener.usuario.getNome() != null) {
                             listener.usuario.getConexao().enviar("MSG " + this.usuario.getNome() + " " + msg[1]);
                         }
                     }

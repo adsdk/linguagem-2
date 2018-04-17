@@ -13,7 +13,7 @@ public class ServidorPrincipal implements Serializable {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         ServerSocket serverSocket;
-        int porta = 4321;
+        int porta = 8976;
 
         System.out.println("Iniciando servidor na porta " + porta);
         serverSocket = new ServerSocket(porta, 100);

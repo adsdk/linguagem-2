@@ -28,3 +28,7 @@ MSG teste linha 27
 MSG teste linha 28
 MSG teste linha 29
 MSG teste linha 30
+MSG tales Teste do Tales aqui
+MSG joao ola tales
+MSG tales oi joao
+MSG teste oi
